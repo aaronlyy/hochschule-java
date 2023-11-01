@@ -3,16 +3,39 @@ import java.util.Scanner;
 public class MiniDonuts {
   public static void main(String args[]) {
     // create scanner instance
-    
     Scanner scanner = new Scanner(System.in);
 
     // get inputs from console
-    int small = getIntSafe("Small: ", scanner);
-    int big = getIntSafe("Big: ", scanner);
-    int n = getIntSafe("Donuts: ", scanner);
+    int packsSmall = getIntSafe("Anzahl kleine Packungen: ", scanner);
+    int packsBig = getIntSafe("Anzahl große Packungen: ", scanner);
+    int n = getIntSafe("Wieviele Donuts willst du kaufen?: ", scanner);
 
-    // get possible big packs
+    // calculate packs
+    int actualBigPacks;
+    int remainingBigPacks;
+    int neededBigPacks = n / 5;
 
+    int neededSmallPacks = n % 5;
+    int actualSmallPacks;
+
+    if (neededBigPacks > packsBig) {
+      actualBigPacks = packsBig;
+      remainingBigPacks = neededBigPacks - packsBig;
+      neededSmallPacks += remainingBigPacks * 5;
+    }
+    else {
+      actualBigPacks = neededBigPacks;
+    }
+
+    if (neededSmallPacks > packsSmall) {
+      System.out.println("Nicht möglich");
+      return;
+    }
+    
+    actualSmallPacks = neededSmallPacks;
+
+    // print packs
+    System.out.printf("Verkauft werden %d große Packungen und %d kleine Packungen", actualBigPacks, actualSmallPacks);
 
     // close scanner
     scanner.close();
@@ -22,7 +45,7 @@ public class MiniDonuts {
   private static int getIntSafe(String prompt, Scanner scanner) {
     int number = 0;
     while (true) {
-      System.out.println(prompt);
+      System.out.print(prompt);
       if (scanner.hasNextInt()) {
         number = scanner.nextInt();
         break;
