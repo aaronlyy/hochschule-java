@@ -3,8 +3,8 @@ import java.util.Scanner;
 public class ForeverYoung {
   public static void main(String[] args) {
     System.out.print("Ihr Alter: ");
-		Scanner in = new Scanner(System.in);
-		int age = in.nextInt();
+    Scanner in = new Scanner(System.in);
+    int age = in.nextInt();
 
     if (age < 10) {
       System.out.println("Echt jetzt? Wow.");
