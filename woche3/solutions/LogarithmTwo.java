@@ -20,7 +20,7 @@ public class LogarithmTwo {
     }
     while (diff > 0.0023f);
 
-    System.out.printf("Acutal Math.log(2): %f", Math.log(2));
+    System.out.printf("Actual Math.log(2): %f", Math.log(2));
 
   }
 }
