@@ -5,9 +5,9 @@ public class LogarithmTwo {
 
     double diff;
     double solution = 0.6931471805599453094172321214581f;
-    double y = 1f;
-    double divider = 2f;
-    int counter = 1;
+    double y = 0f;
+    double divider = 1f;
+    int counter = 0;
 
     do {
       y = y + (1 / divider) * Math.pow(-1, divider - 1);
