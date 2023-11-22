@@ -1,4 +1,4 @@
-public class Methods {
+public class Fractions {
   public static void main(String[] args) {
 
     System.out.println(greatestCommonFactor(12, 98));
