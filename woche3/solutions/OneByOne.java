@@ -10,14 +10,15 @@ public class OneByOne {
 
     while (n != 0) {
       count += n & 1;
-      n >>= 1;
       System.out.printf(
         "%32s\n%32s\n--------------------------------\n%32s\nCurrent count: %d\n\n",
         Integer.toBinaryString(1), Integer.toBinaryString(n), Integer.toBinaryString(n & 1), count
-        );
+      );
+      n >>= 1;
     }
     System.out.printf("Set bits: %d\n", count);
   }
+
 
   private static int getIntSafe(String prompt, Scanner scanner) {
     int number = 0;
