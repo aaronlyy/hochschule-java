@@ -1,3 +1,5 @@
+package woche6.solutions;
+
 public class CeasarsCode {
   public static void main(String[] args) {
     if (args.length != 2) {
@@ -38,21 +40,20 @@ public class CeasarsCode {
 
   public static String encrypt(String text, char[] key) {
     // create char array from given string
-    char[] sArr = text.toCharArray();
+    char[] tArr = text.toCharArray();
 
     // iterate through array and replace chars with key chars
-    for (char c = 0; c < sArr.length; c++) {
-      sArr[c] = key[sArr[c]];
+    for (int c = 0; c < tArr.length; c++) {
+      tArr[c] = key[tArr[c]];
     }
 
     // convert char array back to string
-    return new String(sArr);
+    return new String(tArr);
   }
 
   public static String decrypt(String cipher, char[] key) {
-    // create char array of cipher and result stringbuilder to append every character
+    // create char array of cipher and stringbuilder to append every character
     char[] cArr = cipher.toCharArray();
-    StringBuilder result = new StringBuilder();
 
     // iterate through cipher, search char in key char and replace char with found index
     // a hashmap would be more efficient, but not allowed :(
@@ -61,11 +62,11 @@ public class CeasarsCode {
       for (char j = 0; j < key.length; j++) {
         if (key[j] == cArr[i]) {
           // add found char to result
-          result.append(j);
+          cArr[i] = j;
           break;
         }
       }
     }
-    return result.toString();
+    return new String(cArr);
   }
 }
