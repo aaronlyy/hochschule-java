@@ -1,5 +1,3 @@
-package woche6.solutions;
-
 public class CeasarsCode {
   public static void main(String[] args) {
     if (args.length != 2) {
